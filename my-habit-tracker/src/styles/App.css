@@ -1,0 +1,155 @@
+/* CSS Змінні (кольорова схема) */
+:root {
+  --bg-color: #f4f4f9;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --primary: #646cff;
+  --primary-hover: #535bf2;
+  --success: #28a745;
+  --danger: #dc3545;
+  --card-bg: #ffffff;
+  --border-radius: 8px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & Footer */
+.header, .footer {
+  text-align: center;
+  padding: 20px;
+}
+
+.header h1 {
+  margin: 0 0 10px 0;
+  color: var(--primary);
+}
+
+.footer {
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Main Content */
+.main-content {
+  padding: 0 20px;
+  flex-grow: 1;
+}
+
+.habits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Habit Card */
+.habit-card {
+  background: var(--card-bg);
+  padding: 15px 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  border-left: 5px solid var(--primary);
+}
+
+.habit-card.completed {
+  border-left-color: var(--success);
+  opacity: 0.8;
+}
+
+.habit-card.completed h3 {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.habit-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.habit-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Buttons */
+.habit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.btn-toggle {
+  background-color: var(--primary);
+  color: white;
+}
+
+.completed .btn-toggle {
+  background-color: var(--text-muted);
+}
+
+.btn-delete {
+  background-color: transparent;
+  font-size: 1.2rem;
+  padding: 5px;
+}
+
+/* Habit Input Form */
+.habit-input-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.habit-input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.habit-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.btn-add {
+  background-color: var(--success);
+  color: white;
+  font-size: 1rem;
+}
+
+.btn-add:hover {
+  background-color: #218838; 
+}
