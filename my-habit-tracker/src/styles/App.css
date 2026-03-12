@@ -153,3 +153,13 @@ button:hover {
 .btn-add:hover {
   background-color: #218838; 
 }
+
+.stats-badge { 
+  background: var(--primary); 
+  color: white; 
+  padding: 5px 15px; 
+  border-radius: 20px; 
+  display: inline-block; 
+  margin-top: 10px; 
+  font-size: 0.9rem; 
+}

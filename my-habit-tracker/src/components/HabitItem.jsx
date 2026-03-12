@@ -1,4 +1,4 @@
-export default function HabitItem({ habit }) {
+export default function HabitItem({ habit, onToggle, onDelete }) {
   return (
     <div className={`habit-card ${habit.completed ? 'completed' : ''}`}>
       <div className="habit-info">
@@ -7,10 +7,16 @@ export default function HabitItem({ habit }) {
       </div>
       
       <div className="habit-actions">
-        <button className="btn-toggle">
+        <button 
+          className="btn-toggle" 
+          onClick={() => onToggle(habit.id)}
+        >
           {habit.completed ? '❌ Скасувати' : '✅ Виконано'}
         </button>
-        <button className="btn-delete">
+        <button 
+          className="btn-delete" 
+          onClick={() => onDelete(habit.id)}
+        >
           🗑️
         </button>
       </div>
