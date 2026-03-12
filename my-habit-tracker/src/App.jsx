@@ -12,6 +12,8 @@ export default function App() {
     { id: 4, name: 'Ранкова зарядка', streak: 0, completed: false },
   ]);
 
+  const [filter, setFilter] = useState('all');
+
   const addHabit = (name) => {
     const newHabit = {
       id: Date.now(),
@@ -34,6 +36,12 @@ export default function App() {
     setHabits(habits.filter((habit) => habit.id !== id));
   };
 
+  const filteredHabits = habits.filter((habit) => {
+    if (filter === 'completed') return habit.completed;
+    if (filter === 'active') return !habit.completed;
+    return true; // для 'all'
+  });
+
   const appTitle = "🚀 Habit Tracker";
   const completedCount = habits.filter(habit => habit.completed).length;
   const totalCount = habits.length;
@@ -41,9 +49,11 @@ export default function App() {
   return (
     <div className="app-container">
       <Header title={appTitle} completed={completedCount} total={totalCount} />
-    
+      
       <Main 
-        habits={habits} 
+        habits={filteredHabits} 
+        currentFilter={filter}
+        setFilter={setFilter}
         onAdd={addHabit}
         onToggle={toggleHabit} 
         onDelete={deleteHabit} 

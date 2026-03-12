@@ -163,3 +163,31 @@ button:hover {
   margin-top: 10px; 
   font-size: 0.9rem; 
 }
+
+/* Filter Panel */
+.filter-panel {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.filter-panel button {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: normal;
+}
+
+.filter-panel button:hover {
+  background-color: var(--primary-hover);
+  color: white;
+}
+
+.filter-panel button.active {
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+}
