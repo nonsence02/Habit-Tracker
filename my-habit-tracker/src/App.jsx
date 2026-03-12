@@ -1,16 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // НОВЕ: Імпортуємо useEffect
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import './styles/App.css';
 
 export default function App() {
-  const [habits, setHabits] = useState([
-    { id: 1, name: 'Випити склянку води зранку', streak: 12, completed: false, priority: 'high' },
-    { id: 2, name: 'Прочитати 20 сторінок книги', streak: 3, completed: false, priority: 'medium' },
-    { id: 3, name: 'Англійська мова (15 хв)', streak: 7, completed: false, priority: 'high' },
-    { id: 4, name: 'Ранкова зарядка', streak: 0, completed: false, priority: 'low' },
-  ]);
+  const [habits, setHabits] = useState(() => {
+    const storedHabits = localStorage.getItem('habit-tracker-data');
+    
+    return storedHabits ? JSON.parse(storedHabits) : [
+      { id: 1, name: 'Випити склянку води зранку', streak: 12, completed: false, priority: 'high' },
+      { id: 2, name: 'Прочитати 20 сторінок книги', streak: 3, completed: false, priority: 'medium' },
+      { id: 3, name: 'Англійська мова (15 хв)', streak: 7, completed: false, priority: 'high' },
+      { id: 4, name: 'Ранкова зарядка', streak: 0, completed: false, priority: 'low' },
+    ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('habit-tracker-data', JSON.stringify(habits));
+  }, [habits]); 
 
   const [filter, setFilter] = useState('all');
 
@@ -22,7 +30,6 @@ export default function App() {
       completed: false,
       priority: priority
     };
-   
     setHabits(prev => [newHabit, ...prev]);
   };
 

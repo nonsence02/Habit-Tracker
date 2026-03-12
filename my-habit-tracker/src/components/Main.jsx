@@ -1,5 +1,6 @@
 import HabitInput from './HabitInput';
 import HabitList from './HabitList';
+import ApiList from './ApiList';
 
 export default function Main({ habits, currentFilter, setFilter, onAdd, onToggle, onDelete }) {
   return (
@@ -35,6 +36,9 @@ export default function Main({ habits, currentFilter, setFilter, onAdd, onToggle
         onToggle={onToggle} 
         onDelete={onDelete} 
       />
+
+      <ApiList />
+      
     </main>
   );
 }

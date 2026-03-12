@@ -224,3 +224,49 @@ button:hover {
 .priority-badge.high { background-color: #dc3545; }
 
 .completed .priority-badge { opacity: 0.5; }
+
+/* API Section */
+.api-section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px dashed #ccc;
+}
+
+.api-section h3 {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.api-loading {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.api-error {
+  color: var(--danger);
+  background: #ffe6e6;
+  padding: 10px;
+  border-radius: var(--border-radius);
+}
+
+.api-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.api-item {
+  background: #fdfdfd;
+  padding: 10px 15px;
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.api-icon {
+  margin-right: 8px;
+}
