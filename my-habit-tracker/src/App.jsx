@@ -6,22 +6,24 @@ import './styles/App.css';
 
 export default function App() {
   const [habits, setHabits] = useState([
-    { id: 1, name: 'Випити склянку води зранку', streak: 12, completed: false },
-    { id: 2, name: 'Прочитати 20 сторінок книги', streak: 3, completed: false },
-    { id: 3, name: 'Англійська мова (15 хв)', streak: 7, completed: false },
-    { id: 4, name: 'Ранкова зарядка', streak: 0, completed: false },
+    { id: 1, name: 'Випити склянку води зранку', streak: 12, completed: false, priority: 'high' },
+    { id: 2, name: 'Прочитати 20 сторінок книги', streak: 3, completed: false, priority: 'medium' },
+    { id: 3, name: 'Англійська мова (15 хв)', streak: 7, completed: false, priority: 'high' },
+    { id: 4, name: 'Ранкова зарядка', streak: 0, completed: false, priority: 'low' },
   ]);
 
   const [filter, setFilter] = useState('all');
 
-  const addHabit = (name) => {
+  const addHabit = (name, priority) => {
     const newHabit = {
       id: Date.now(),
       name: name,
       streak: 0,
       completed: false,
+      priority: priority
     };
-    setHabits([newHabit, ...habits]);
+   
+    setHabits(prev => [newHabit, ...prev]);
   };
 
   const toggleHabit = (id) => {
@@ -39,7 +41,7 @@ export default function App() {
   const filteredHabits = habits.filter((habit) => {
     if (filter === 'completed') return habit.completed;
     if (filter === 'active') return !habit.completed;
-    return true; // для 'all'
+    return true; 
   });
 
   const appTitle = "🚀 Habit Tracker";

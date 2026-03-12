@@ -191,3 +191,36 @@ button:hover {
   color: white;
   font-weight: bold;
 }
+
+/* Select Input */
+.habit-select {
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.habit-select:focus {
+  border-color: var(--primary);
+}
+
+/* Priority Badges */
+.priority-badge {
+  font-size: 0.65rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  color: white;
+  margin-left: 10px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.priority-badge.low { background-color: #28a745; }
+.priority-badge.medium { background-color: #ffc107; color: #333; }
+.priority-badge.high { background-color: #dc3545; }
+
+.completed .priority-badge { opacity: 0.5; }
